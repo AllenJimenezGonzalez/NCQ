@@ -1,0 +1,36 @@
+<script src="jquery/jquery.js"></script>
+<script type="text/javascript" src='js/bootstrap.min.js'></script>
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action= "addBranchOffice" method="POST">
+
+                        <div class="form-group">
+                            <input type="number" name="branchCode" class="form-control" placeholder="Codigo de la sucursal" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Nombre de la sucursal">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="direction" rows="2" class="form-control" placeholder="Direccion"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" name="clientCode" rows="1" class="form-control" placeholder="Codigo del cliente"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Agregar sucursal
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
