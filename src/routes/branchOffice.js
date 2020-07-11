@@ -54,9 +54,8 @@ router.get('/getBranchOffice',(req,res)=>{
         .output('status',sql.Bit,0)
         .execute('BranchOffice_getBranchOffice');
     }).then(val=>{
-        console.log(val.recordset);
         res.render('common/branchOfficeView', {branchOffices:val.recordset})
-    })
+    });
 });
 
 router.get('/deleteBranchOffice/:id',(req,res)=>{
@@ -70,5 +69,41 @@ router.get('/deleteBranchOffice/:id',(req,res)=>{
         res.redirect('/getBranchOffice');
     });
 });
+
+router.post('/editBranchOffice',(req,res)=>{
+    console.log(req.body);
+    getPoolConnection().then(pool=>{
+        return pool.request().input('branchCode',sql.Int,req.body.branchCode)
+                            .input('name',sql.VarChar(40),req.body.name)
+                            .input('direction',sql.VarChar(100),req.body.direction)
+                            .input('clientCode',sql.Int,req.body.clientCode)
+                            .output('status',sql.Bit,0)
+                            .execute('BranchOffice_updateBranchOffice')
+    }).then(val=>{
+        res.redirect('/getBranchOffice');
+    });
+});
+
+
+router.get('/editBranchOffice/:branchCode',(req,res)=>{
+    getPoolConnection().then(pool=>{
+        return pool.request()
+                    .output('status',sql.Bit,0)
+                    .execute('BranchOffice_getBranchOffice');
+    }).then(val=>{
+
+        const data =  val.recordset;
+
+        data.forEach(element =>{
+            console.log(element.branchCode);
+            if(element.branchCode == req.params.branchCode){
+                res.render('common/editBranchOffice',{data:element});
+            }
+        });
+
+    });
+    
+});
+
 
 module.exports = router;

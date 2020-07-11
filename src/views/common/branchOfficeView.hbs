@@ -6,18 +6,15 @@
     <div class="row">
         {{#each branchOffices}}
         <div class="col-md-3">
-            <div class="card text-center">
+            <div class="shadow card text-center">
                 <div class="card-body">
-                    <a href="{{url}}" target="_blank">
-                        <h3 class="card-title text-uppercase">
-                            {{name}}
-                        </h3>
-                    </a>
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">{{name}}</p>
                     <p class="text-muted">{{branchCode}}</p>
                     <p class="m-2">{{direction}}</p>
                     <p class="text-muted">{{clientCode}}</p>
+                    <p class="p-3 mb-2 bg-warning text-dark">{{fullName}}</p>
 
-                    <a class="btn btn-success" href="/links/edit/{{id}}">
+                    <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
                         Editar
                     </a>
 
@@ -28,13 +25,7 @@
                 </div>
             </div>
         </div>
-        {{else}}
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body text-center">
-                <p>No hay sucursales para mostrar</p>
-                <a href="/links/add">Agrega una aqui!</a>
-            </div>
-        </div>
+        
         {{/each}}
     </div>
 </div>

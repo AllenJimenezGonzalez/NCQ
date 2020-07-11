@@ -1,7 +1,8 @@
 const express = require ('express');
 const morgan = require ('morgan');
 const expHdbs = require('express-handlebars');
-const path = require('path')
+const path = require('path');
+const { allowedNodeEnvironmentFlags } = require('process');
 
 //Initialize
 const app = express();
@@ -33,6 +34,7 @@ app.use((req,res,next)=>{
 //Routes
 app.use(require('./routes/main.js'));
 app.use(require('./routes/branchOffice'));
+app.use(require('./routes/client'));
 //Public 
 
 app.use(express.static(path.join(__dirname,'public')));
