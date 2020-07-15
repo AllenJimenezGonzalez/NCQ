@@ -1,97 +1,92 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light align-items-center">
 
-  <a class="font-weight-ligth navbar-brand" href="/">NCQ</a>
-
-  <object data="https://pbs.twimg.com/profile_images/1137441275/image001_200x200.png" type="image/png" width="50"
-    height="50"></object>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-    <ul class="navbar-nav">
-
-      <li class="nav-item active">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="#">Eventos</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Viaticos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/getClients">Viaticos</a>
-          <a class="dropdown-item" href="/getClients">Viaticos transporte</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/getClientsEmail">Tipos de viaticos</a>
-
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Clientes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/getClients">Clientes</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/getClientsEmail">Correo clientes</a>
-          <a class="dropdown-item" href="/getClientsPhone">Telefono clientes</a>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getBranchOffice">Sucursales</a>
-      </li>
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getCostCenter">Centros de costo</a>
-      </li>
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="#">Razones</a>
-      </li>
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Empleados</a>
-      </li>
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Soporte</a>
-      </li>
-      
-
-      <li class="nav-item dropdown">
-        <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          Lista de trabajos
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/getClients">Lista de trabajos</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/getClientsEmail">Lista de codigos de trabajo</a>
-
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Vehiculos</a>
-      </li>
-
-      
 
 
-    </ul>
+
+  <div class="container justify-content-center">
+    <a class="navbar-brand" href="/">
+      <img src="/img/Qupos.png" type="image/png" width="30px" height="50px" />
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+
+        <li class="nav-item active">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="#">Eventos</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Viaticos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/getClients">Viaticos</a>
+            <a class="dropdown-item" href="/getClients">Viaticos transporte</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/getClientsEmail">Tipos de viaticos</a>
+
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Clientes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/getClients">Clientes</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/getClientsEmail">Correo clientes</a>
+            <a class="dropdown-item" href="/getClientsPhone">Telefono clientes</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getBranchOffice">Sucursales</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getCostCenter">Centros</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="#">Razones</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Empleados</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Soporte</a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="p-3 mb-2 bg-warning nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lista de trabajos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/getClients">Lista de trabajos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/getClientsEmail">Lista de codigos de trabajo</a>
+
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="p-3 mb-2 bg-warning text-white nav-link" href="/getClients">Vehiculos</a>
+        </li>
+
+      </ul>
+    </div>
   </div>
-
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
-  <div class="p-1 m-1"></div>
 </nav>

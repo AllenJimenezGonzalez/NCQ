@@ -17,6 +17,10 @@ body {
     color: white !important;
 }
 
+img {
+    width: 100%;
+}
+
 .masthead {
     color: white;
     min-height: 30rem;
