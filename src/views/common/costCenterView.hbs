@@ -1,0 +1,25 @@
+<div class="container p-4">
+
+
+    <div class="m-1">
+        <a class="btn btn-outline-success btn-block" href="/addBranchOffice">Agregar centro de costo</a>
+    </div>
+
+    <div class="row">
+        {{#each centers}}
+        <div class="col-md-3">
+            <div class="shadow  card text-center">
+                <div class="card-body">
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">{{costCenterCode}}</p>
+
+                    <p class="text-muted">{{descriptionCostCenter}}</p>
+
+                    <a class="btn btn-danger" href="/deleteClient/{{clientCode}}">
+                        Eliminar
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>

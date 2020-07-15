@@ -1,8 +1,7 @@
 <div class="container p-4">
     <div class="m-1">
-        <a class="btn btn-outline-success btn-block" href = "#" >Agregar correo</a>
+        <a class="btn btn-outline-success btn-block" href="#">Agregar correo</a>
     </div>
-    
     <div class="row">
         {{#each emails}}
         <div class="col-md-3">
@@ -10,20 +9,13 @@
                 <div class="shadow  card-body">
                     <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">{{fullName}}</p>
                     <p class="text-muted">{{email}}</p>
-                    <a class="btn btn-success" href="#">
-                        Editar
-                    </a>
-
                     <a class="btn btn-danger" href="/deleteClient/{{clientCode}}">
                         Eliminar
                     </a>
-                    
-                    
-                    
                 </div>
             </div>
         </div>
-        
+
         {{/each}}
     </div>
 </div>
