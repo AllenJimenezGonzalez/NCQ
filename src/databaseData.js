@@ -1,7 +1,7 @@
 module.exports = {
     user: 'NCQ',
     password: 'ncqserver',
-    server: '168.61.151.41',
+    server: '13.89.218.73',
     database: 'NCQ',
     options: {
         encrypt: false
@@ -11,4 +11,4 @@ module.exports = {
         min: 0,
         idleTimeoutMillis: 15000
     }
-}; 
+};
