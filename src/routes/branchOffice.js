@@ -19,7 +19,7 @@ router.get('/addBranchOffice', (req, res) => {
         });
     });
 
-    res.render('common/addBranchOffice.hbs')
+    res.render('common/branch_office/addBranchOffice.hbs')
 });
 
 router.post('/addBranchOffice', (req, res) => {
@@ -53,7 +53,7 @@ router.get('/getBranchOffice', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('BranchOffice_getBranchOffice');
     }).then(val => {
-        res.render('common/branchOfficeView', { branchOffices: val.recordset })
+        res.render('common/branch_office/branchOfficeView', { branchOffices: val.recordset })
     });
 });
 
@@ -91,18 +91,14 @@ router.get('/editBranchOffice/:branchCode', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('BranchOffice_getBranchOffice');
     }).then(val => {
-
         const data = val.recordset;
-
         data.forEach(element => {
             console.log(element.branchCode);
             if (element.branchCode == req.params.branchCode) {
-                res.render('common/editBranchOffice', { data: element });
+                res.render('common/branch_office/editBranchOffice', { data: element });
             }
         });
-
     });
-
 });
 
 

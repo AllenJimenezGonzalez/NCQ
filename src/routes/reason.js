@@ -12,7 +12,7 @@ router.get('/getReason', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Reason_getReason');
     }).then(val => {
-        res.render('common/reasonView', { reason: val.recordset })
+        res.render('common/reason/reasonView', { reason: val.recordset })
     });
 
 });

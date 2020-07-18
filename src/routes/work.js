@@ -12,7 +12,7 @@ router.get('/getWork', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Work_getWork');
     }).then(val => {
-        res.render('common/workView', { works: val.recordset })
+        res.render('common/work/workView', { works: val.recordset })
     });
 
 });

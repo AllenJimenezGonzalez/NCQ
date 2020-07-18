@@ -12,7 +12,7 @@ router.get('/getVehicle', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Vehicle_getVehicle');
     }).then(val => {
-        res.render('common/vehicleView', { vehicle: val.recordset })
+        res.render('common/vehicle/vehicleView', { vehicle: val.recordset })
     });
 
 });

@@ -13,7 +13,7 @@ router.get('/getCostCenter', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('CostCenter_getCostCenter');
     }).then(val => {
-        res.render('common/costCenterView', { centers: val.recordset })
+        res.render('common/cost_center/costCenterView', { centers: val.recordset })
     });
 
 });
@@ -26,11 +26,9 @@ router.get('/addCostCenter', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('CostCenter_getCostCenter');
     }).then(val => {
-        res.render('common/costCenterView', { centers: val.recordset })
+        res.render('common/cost_center/costCenterView', { centers: val.recordset })
     });
 
 });
-
-
 
 module.exports = router;

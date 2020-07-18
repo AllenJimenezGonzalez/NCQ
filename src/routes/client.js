@@ -14,7 +14,7 @@ router.get('/getClients', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getClient');
     }).then(val => {
-        res.render('common/clientsView', { clients: val.recordset })
+        res.render('common/client/clientsView', { clients: val.recordset })
     });
 
 });
@@ -25,7 +25,7 @@ router.get('/getClientsPhone', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getPhones');
     }).then(val => {
-        res.render('common/clientsPhoneView', { phones: val.recordset })
+        res.render('common/client/clientsPhoneView', { phones: val.recordset })
     });
 
 });
@@ -37,7 +37,7 @@ router.get('/getClientsPhone/:id', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getPhones_byUser');
     }).then(val => {
-        res.render('common/clientsPhoneView', { phones: val.recordset })
+        res.render('common/client/clientsPhoneView', { phones: val.recordset })
     });
 
 });
@@ -49,7 +49,7 @@ router.get('/getClientsEmail', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getEmail');
     }).then(val => {
-        res.render('common/clientEmailView', { emails: val.recordset })
+        res.render('common/client/clientEmailView', { emails: val.recordset })
     });
 });
 
@@ -60,7 +60,7 @@ router.get('/getClientsEmail/:id', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getEmail_byUser');
     }).then(val => {
-        res.render('common/clientEmailView', { emails: val.recordset })
+        res.render('common/client/clientEmailView', { emails: val.recordset })
     });
 
 });
@@ -88,7 +88,7 @@ router.get('/deleteClient/:id', (req, res) => {
 });
 
 router.get('/addClient', (req, res) => {
-    res.render('common/addClient');
+    res.render('common/client/addClient');
 });
 
 router.post('/addClient', (req, res) => {
