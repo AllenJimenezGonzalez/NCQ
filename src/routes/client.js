@@ -5,6 +5,7 @@ const dbConn = require('../databaseConnection')
 const sql = require('mssql');
 var HttpStatus = require('http-status-codes');
 const { get } = require('./branchOffice');
+const { body } = require('express-validator');
 
 router.get('/getClients', (req, res) => {
 
@@ -86,6 +87,20 @@ router.get('/deleteClient/:id', (req, res) => {
         });
 });
 
+router.get('/addClient', (req, res) => {
+    res.render('common/addClient');
+});
 
+router.post('/addClient', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('name', sql.VarChar(40), req.body.name)
+            .input('lastName', sql.VarChar(40), req.body.lastName)
+            .output('status', sql.Bit, 0)
+            .execute('Client_addClient');
+    }).then(val => {
+        res.redirect('/getClients');
+    })
+});
 
 module.exports = router;
