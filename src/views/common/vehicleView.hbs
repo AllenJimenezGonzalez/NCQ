@@ -1,0 +1,33 @@
+<div class="container p-4">
+
+
+    <div class="m-1">
+        <a class="btn btn-outline-success btn-block" href="/addVehicle">Agregar un vehiculo</a>
+    </div>
+
+    <div class="row">
+        {{#each vehicle}}
+        <div class="col-md-3">
+            <div class="shadow  card text-center">
+                <div class="card-body">
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">Placa: {{carId}}</p>
+                    <p class="text-muted">Marca: {{brand}}</p>
+                    <p class="text-muted">Modelo: {{model}}</p>
+                    <p class="text-muted">Año: {{year}}</p>
+                    <a class="btn btn-success" href="#">
+                        Editar
+                    </a>
+
+                    <a class="btn btn-danger" href="/deleteClient/{{clientCode}}">
+                        Eliminar
+                    </a>
+
+                    <div class="p-1 m-1"></div>
+                    <div class="m-1"></div>
+                </div>
+            </div>
+        </div>
+
+        {{/each}}
+    </div>
+</div>

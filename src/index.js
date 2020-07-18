@@ -36,6 +36,9 @@ app.use(require('./routes/main.js'));
 app.use(require('./routes/branchOffice'));
 app.use(require('./routes/client'));
 app.use(require('./routes/costCenter'));
+app.use(require('./routes/work'));
+app.use(require('./routes/reason'));
+app.use(require('./routes/vehicle'));
 //Public 
 
 app.use(express.static(path.join(__dirname, 'public')));
