@@ -1,0 +1,30 @@
+<div class="container p-4">
+    <div class="m-1">
+        <a class="btn btn-outline-success btn-block" href = "addTransportViatic" >Agregar un viatico de transporte</a>
+    </div>
+    
+    <div class="row">
+        {{#each transport_viatic}}
+        <div class="col-md-3">
+            <div class="shadow card text-center">
+                <div class="card-body">
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{viaticCode}}</p>
+                    <p class="text-muted">Cantidad Km: {{kilometers}}</p>
+                    <p class="text-muted">Monto Km: {{kilometersAmount}}</p>
+                    <p class="text-muted">Placa: {{carId}}</p>
+
+                    <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
+                        Editar
+                    </a>
+
+                    <a class="btn btn-danger" href="deleteBranchOffice/{{branchCode}}">
+                        Eliminar
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        
+        {{/each}}
+    </div>
+</div>

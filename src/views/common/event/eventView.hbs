@@ -1,0 +1,37 @@
+<div class="container p-4">
+    <div class="m-1">
+        <a class="btn btn-outline-success btn-block" href = "addEvent" >Agregar un evento</a>
+    </div>
+    
+    <div class="row">
+        {{#each event}}
+        <div class="col-md-3">
+            <div class="shadow card text-center">
+                <div class="card-body">
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{eventCode}}</p>
+                    <p class="text-muted">Trabajo realizado: {{realizedJob}}</p>
+                    <p class="text-muted">Descripcion del problema: {{problemDescription}}</p>
+                    <p class="text-muted">Fecha: {{dateEvent}}</p>
+                    <p class="text-muted">Duracion del evento: {{hours}}:{{minutes}}</p>
+                    <p class="text-muted">Oficina: {{branchName}}</p>
+                    <p class="text-muted">Razon: {{reasonName}}</p>
+                    <p class="text-muted">Trabajo: {{workName}}</p>
+                    <p class="text-muted">Centro de costo: {{costCenterName}}</p>
+                    <p class="text-muted">Soporte: {{supportName}}</p>
+                    <p class="text-muted">Empleado: {{employeeName}}</p>
+
+                    <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
+                        Editar
+                    </a>
+
+                    <a class="btn btn-danger" href="deleteBranchOffice/{{branchCode}}">
+                        Eliminar
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        
+        {{/each}}
+    </div>
+</div>

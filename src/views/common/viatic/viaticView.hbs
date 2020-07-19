@@ -1,0 +1,36 @@
+<div class="container p-4">
+    <div class="m-1">
+        <a class="btn btn-outline-success btn-block" href = "addViatic" >Agregar un viatico</a>
+    </div>
+    
+    <div class="row">
+        {{#each viatic}}
+        <div class="col-md-3">
+            <div class="shadow card text-center">
+                <div class="card-body">
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{viaticCode}}</p>
+                    <p class="text-muted">Numero del empleado: {{employeeNumber}}</p>
+                    <p class="text-muted">Distribuidor: {{provider}}</p>
+                    <p class="text-muted">Fecha: {{dateData}}</p>
+                    <p class="text-muted">Nota: {{notes}}</p>
+                    <p class="text-muted">Tiquetes: {{ticket}}</p>
+                    <p class="text-muted">Monto: {{amount}}</p>
+                    <p class="text-muted">Factura: {{invoiceNumber}}</p>
+                    <p class="text-muted">ID del tipo de viatico: {{viaticTypeCode}}</p>
+                    <p class="text-muted">ID del empleado: {{employeeCode}}</p>
+                    <p class="text-muted">ID del evento: {{eventCode}}</p>
+                    <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
+                        Editar
+                    </a>
+
+                    <a class="btn btn-danger" href="deleteBranchOffice/{{branchCode}}">
+                        Eliminar
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        
+        {{/each}}
+    </div>
+</div>

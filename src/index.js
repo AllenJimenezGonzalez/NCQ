@@ -39,6 +39,12 @@ app.use(require('./routes/costCenter'));
 app.use(require('./routes/work'));
 app.use(require('./routes/reason'));
 app.use(require('./routes/vehicle'));
+app.use(require('./routes/support'));
+app.use(require('./routes/employee'));
+app.use(require('./routes/transport_viatic'));
+app.use(require('./routes/workType'));
+app.use(require('./routes/viatic'));
+app.use(require('./routes/event'));
 //Public 
 
 app.use(express.static(path.join(__dirname, 'public')));
