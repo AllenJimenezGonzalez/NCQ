@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="m-1">
-        <a class="btn btn-outline-success btn-block" href = "#" >Agregar telefono</a>
+        <a class="btn btn-outline-success btn-block" href = "/addClientPhone" >Agregar telefono</a>
     </div>
     
     <div class="row">
@@ -10,7 +10,8 @@
                 <div class="card-body">
                     <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">{{fullName}}</p>
                     <p class="text-muted">{{phone}}</p>
-                    <a class="btn btn-danger" href="/deleteClient/{{clientCode}}">
+                    <p class="text-muted">{{code}}</p>
+                    <a class="btn btn-danger" href="/deleteClientPhone/{{phone}}/{{code}}">
                         Eliminar
                     </a>
                 </div>

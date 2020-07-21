@@ -17,4 +17,33 @@ router.get('/getReason', (req, res) => {
 
 });
 
+router.get('/addReason', (req, res) => {
+    res.render('common/reason/addReason')
+});
+
+router.post('/addReason', (req, res) => {
+
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('descriptionReason', sql.VarChar(100), req.body.descriptionReason)
+            .output('status', sql.Bit, 0)
+            .execute('Reason_addReason');
+
+    }).then(val => {
+        res.redirect('/getReason');
+    });
+
+});
+
+router.get('/deleteReason/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('reasonCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Reason_deleteReason');
+    }).then(val => {
+        res.redirect('/getReason');
+    });
+});
+
 module.exports = router;

@@ -45,6 +45,7 @@ app.use(require('./routes/transport_viatic'));
 app.use(require('./routes/workType'));
 app.use(require('./routes/viatic'));
 app.use(require('./routes/event'));
+app.use(require('./routes/viaticType'));
 //Public 
 
 app.use(express.static(path.join(__dirname, 'public')));

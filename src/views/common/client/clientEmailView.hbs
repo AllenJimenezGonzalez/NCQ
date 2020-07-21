@@ -9,7 +9,9 @@
                 <div class="shadow  card-body">
                     <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">{{fullName}}</p>
                     <p class="text-muted">{{email}}</p>
-                    <a class="btn btn-danger" href="/deleteClient/{{clientCode}}">
+                    <p class="text-muted">{{code}}</p>
+                    
+                    <a class="btn btn-danger" href="/deleteClientEmail/{{email}}/{{code}}">
                         Eliminar
                     </a>
                 </div>

@@ -3,20 +3,16 @@
         <div class="col-md-4 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/addClient" method="POST">
+                    <form action= "/addCostCenter" method="POST">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" placeholder="Nombre del cliente">
+                            <textarea name="descriptionCostCenter" rows="2" class="form-control" placeholder="Descripcion del centro de costo"></textarea>
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="lastName" class="form-control" placeholder="Apellidos">
-                        </div>
 
-                        
-                        
                         <div class="form-group">
                             <button class="btn btn-success btn-block">
-                                Agregar cliente
+                                Agregar centro de costo
                             </button>
                         </div>
                     </form>

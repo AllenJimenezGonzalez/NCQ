@@ -30,6 +30,18 @@ router.get('/getClientsPhone', (req, res) => {
 
 });
 
+router.get('/deleteClientPhone/:id/:clientCode', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('phone', sql.Int, req.params.id)
+            .input('clientCode', sql.Int, req.params.clientCode)
+            .output('status', sql.Bit, 0)
+            .execute('ClientPhone_deletePhone');
+    }).then(val => {
+        res.redirect('/getClients');
+    })
+});
+
 router.get('/getClientsPhone/:id', (req, res) => {
     getPoolConnection().then(pool => {
         return pool.request()
@@ -66,12 +78,15 @@ router.get('/getClientsEmail/:id', (req, res) => {
 });
 
 
-router.get('/deleteClientEmail/:id', (req, res) => {
+router.get('/deleteClientEmail/:id/:clientCode', (req, res) => {
     getPoolConnection().then(pool => {
         return pool.request()
-            .input('clientCode', sql.Int, req.params.id)
+            .input('email', sql.Int, req.params.id)
+            .input('clientCode', sql.Int, req.params.clientCode)
             .output('status', sql.Bit, 0)
-            .execute('Client_deleteClient');
+            .execute('ClientEmail_deleteEmail');
+    }).then(val => {
+        res.redirect('/getClients');
     })
 });
 
@@ -102,5 +117,28 @@ router.post('/addClient', (req, res) => {
         res.redirect('/getClients');
     })
 });
+
+router.get('/addClientPhone', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .output('status', sql.Bit, 0)
+            .execute('Client_getClient')
+    }).then(val => {
+        res.render('common/client/addClientPhone', { clients: val.recordset });
+    })
+
+});
+
+router.post('/addClientPhone', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('phone', sql.VarChar(40), req.body.phone)
+            .input('clientCode', sql.Int, req.body.clientCode)
+            .output('status', sql.Bit, 0)
+            .execute('ClientPhone_addPhone')
+    }).then(val => {
+        res.redirect('/getClientsPhone');
+    })
+})
 
 module.exports = router;

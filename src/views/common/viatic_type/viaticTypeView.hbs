@@ -1,16 +1,16 @@
 <div class="container p-4">
     <div class="m-1">
-        <a class="btn btn-outline-success btn-block" href = "/addWorkType" >Agregar un tipo de trabajo</a>
+        <a class="btn btn-outline-success btn-block" href = "/addViatic" >Agregar un tipo viatico</a>
     </div>
     
     <div class="row">
-        {{#each work_type}}
+        {{#each viatic}}
         <div class="col-md-3">
             <div class="shadow card text-center">
                 <div class="card-body">
-                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{workTypeCode}}</p>
-                    <p class="text-muted">Descripcion: {{descriptionWorkType}}</p>
-                    
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{viaticTypeCode}}</p>
+                    <p class="text-muted">Descripcion: {{DescriptionViaticType}}</p>
+
                     <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
                         Editar
                     </a>

@@ -19,16 +19,33 @@ router.get('/getCostCenter', (req, res) => {
 });
 
 router.get('/addCostCenter', (req, res) => {
+    res.render('common/cost_center/addCostCenter')
+});
+
+router.post('/addCostCenter', (req, res) => {
 
     getPoolConnection().then(pool => {
         return pool.request()
-            .input('costCenterCode')
+            .input('descriptionCostCenter', sql.VarChar(100), req.body.descriptionCostCenter)
             .output('status', sql.Bit, 0)
-            .execute('CostCenter_getCostCenter');
+            .execute('CostCenter_addCostCenter');
+
     }).then(val => {
-        res.render('common/cost_center/costCenterView', { centers: val.recordset })
+        res.redirect('/getCostCenter');
     });
 
+});
+
+router.get('/deleteCostCenter/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('costCenterCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('CostCenter_deleteCostCenter');
+
+    }).then(val => {
+        res.redirect('/getCostCenter');
+    });
 });
 
 module.exports = router;
