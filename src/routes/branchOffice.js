@@ -7,19 +7,16 @@ const { getPoolConnection } = require('../databaseConnection');
 
 
 router.get('/addBranchOffice', (req, res) => {
-
-    let clients = [];
     getPoolConnection().then(pool => {
         return pool.request()
             .output('status', sql.Bit, 0)
             .execute('Client_getClient');
     }).then(val => {
-        val.recordset.forEach(element => {
-            clients.push(element[0] + element[1]);
-        });
+        res.render('common/branch_office/addBranchOffice', {
+            clients: val.recordset
+        })
     });
 
-    res.render('common/branch_office/addBranchOffice.hbs')
 });
 
 router.post('/addBranchOffice', (req, res) => {

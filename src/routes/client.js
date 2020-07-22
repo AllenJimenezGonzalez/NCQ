@@ -14,7 +14,7 @@ router.get('/getClients', (req, res) => {
             .output('status', sql.Bit, 0)
             .execute('Client_getClient');
     }).then(val => {
-        res.render('common/client/clientsView', { clients: val.recordset })
+        res.render('common/client/clientsView', { clients: val.recordset });
     });
 
 });
@@ -138,6 +138,30 @@ router.post('/addClientPhone', (req, res) => {
             .execute('ClientPhone_addPhone')
     }).then(val => {
         res.redirect('/getClientsPhone');
+    })
+});
+
+router.get('/addClientEmail', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .output('status', sql.Bit, 0)
+            .execute('Client_getClient')
+    }).then(val => {
+        res.render('common/client/addClientEmail', { clients: val.recordset });
+    })
+
+});
+
+
+router.post('/addClientEmail', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('email', sql.VarChar(40), req.body.email)
+            .input('clientCode', sql.Int, req.body.clientCode)
+            .output('status', sql.Bit, 0)
+            .execute('ClientEmail_addEmail')
+    }).then(val => {
+        res.redirect('/getClientsEmail');
     })
 })
 

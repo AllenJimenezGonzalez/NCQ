@@ -17,4 +17,28 @@ router.get('/getWork', (req, res) => {
 
 });
 
+router.get('/addWork', (req, res) => {
+
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .output('status', sql.Bit, 0)
+            .execute('WorkType_getWorkType');
+    }).then(val => {
+        res.render('common/work/addWork', { workType: val.recordset })
+    });
+
+});
+
+router.post('/addWork', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('descriptionWork', sql.VarChar(40), req.body.descriptionWork)
+            .input('workTypeCode', sql.Int, req.body.workTypeCode)
+            .output('status', sql.Bit, 0)
+            .execute('Work_addWork')
+    }).then(val => {
+        res.redirect('/getWork');
+    });
+});
+
 module.exports = router;

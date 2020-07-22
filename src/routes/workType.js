@@ -17,4 +17,20 @@ router.get('/getWorkType', (req, res) => {
 
 });
 
+
+router.get('/addWorkType', (req, res) => {
+    res.render('common/work_type/addWorkType')
+});
+
+router.post('/addWorkType', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('descriptionWorkType', sql.VarChar(200), req.body.descriptionWorkType)
+            .output('status', sql.Bit, 0)
+            .execute('WorkType_addWorkType')
+    }).then(val => {
+        res.redirect('/getWorkType');
+    });
+});
+
 module.exports = router;
