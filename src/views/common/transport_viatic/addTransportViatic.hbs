@@ -1,0 +1,98 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/addTransportViatic" method="POST">
+
+                        <div class="form-group">
+                            <input type="number" name="employeeNumber" class="form-control"
+                                placeholder="Cantidad de empleados">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="provider" class="form-control" placeholder="Proveedor">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="notes" class="form-control" placeholder="Notas">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="amount" class="form-control" placeholder="Monto">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="kilometers" class="form-control" placeholder="Cantidad de kilometros">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="kilometersAmount" class="form-control" placeholder="Precio por kilometro">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" name="invoiceNumber" class="form-control"
+                                placeholder="Numero de factura">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="carId">Vehiculo </label>
+                                <select class="custom-select" id="carId" name="carId" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each vehicle}}
+                                    <option value={{carId}}>{{fullName}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="clientCode">Tipo de viatico </label>
+                                <select class="custom-select" id="viaticTypeCode" name="viaticTypeCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each viaticType}}
+                                    <option value={{viaticTypeCode}}>{{DescriptionViaticType}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="clientCode">Responsable: </label>
+                                <select class="custom-select" id="employeeCode" name="employeeCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each employee}}
+                                    <option value={{employeeCode}}>{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="clientCode">Evento: </label>
+                                <select class="custom-select" id="eventCode" name="eventCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each event}}
+                                    <option value={{eventCode}}>{{eventCode}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Agregar viatico
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

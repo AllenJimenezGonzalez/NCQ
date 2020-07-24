@@ -17,4 +17,21 @@ router.get('/getSupport', (req, res) => {
 
 });
 
+router.get('/addSupport', (req, res) => {
+    res.render('common/support/addSupport')
+});
+
+router.post('/addSupport', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('descriptionSupport', sql.VarChar(100), req.body.descriptionSupport)
+            .output('status', sql.Bit, 0)
+            .execute('Support_addSupport');
+    }).then(val => {
+        res.redirect('/getSupport')
+    });
+});
+
+
+
 module.exports = router;

@@ -1,0 +1,110 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/addEvent" method="POST">
+
+                        <div class="form-group">
+                            <textarea name="realizedJob" rows="2" class="form-control"
+                                placeholder="Trabajo realizado"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea name="problemDescription" rows="2" class="form-control"
+                                placeholder="Descripcion del problema"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="hours" class="form-control" placeholder="Horas">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" name="minutes" class="form-control" placeholder="Minutos">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="branchOffice">Sucursal</label>
+                                <select class="custom-select" id="branchCode" name="branchCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each branchOffice}}
+                                    <option value={{branchCode}}>{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="reason">Razon </label>
+                                <select class="custom-select" id="reasonCode" name="reasonCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each reason}}
+                                    <option value={{reasonCode}}>{{descriptionReason}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="costCenter">Centro de costo </label>
+                                <select class="custom-select" id="costCenterCode" name="costCenterCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each costCenter}}
+                                    <option value={{costCenterCode}}>{{descriptionCostCenter}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="work">Tipo de trabajo </label>
+                                <select class="custom-select" id="workCode" name="workCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each work}}
+                                    <option value={{workCode}}>{{descriptionWork}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="support">Tipo de soporte</label>
+                                <select class="custom-select" id="supportCode" name="supportCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each support}}
+                                    <option value={{supportCode}}>{{descriptionSupport}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                                <label for="employee">Empleado encargado</label>
+                                <select class="custom-select" id="employeeCode" name="employeeCode" required>
+                                    <option selected disabled value="">Selecciona...</option>
+                                    {{#each employee}}
+                                    <option value={{employeeCode}}>{{name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Agregar evento
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

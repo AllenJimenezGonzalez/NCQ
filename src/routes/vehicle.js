@@ -26,9 +26,9 @@ router.post('/addVehicle', (req, res) => {
     getPoolConnection().then(pool => {
         return pool.request()
             .input('carId', sql.Char(6), req.body.carId)
-            .input('brand', sql.Char(6), req.body.brand)
-            .input('model', sql.Char(6), req.body.model)
-            .input('year', sql.Char(6), req.body.year)
+            .input('brand', sql.VarChar(20), req.body.brand)
+            .input('model', sql.VarChar(20), req.body.model)
+            .input('year', sql.Int, req.body.year)
             .output('status', sql.Bit, 0)
             .execute('Vehicle_addVehicle');
     }).then(val => {

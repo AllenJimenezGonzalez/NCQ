@@ -17,4 +17,21 @@ router.get('/getEmployee', (req, res) => {
 
 });
 
+router.get('/addEmployee', (req, res) => {
+    res.render('common/employee/addEmployee');
+});
+
+router.post('/addEmployee', (req, res) => {
+
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('name', sql.VarChar(100), req.body.name)
+            .output('status', sql.Bit, 0)
+            .execute('Employee_addEmployee');
+    }).then(val => {
+        res.redirect('/getEmployee');
+    });
+
+});
+
 module.exports = router;
