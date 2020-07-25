@@ -41,4 +41,17 @@ router.post('/addWork', (req, res) => {
     });
 });
 
+
+router.get('/deleteWork/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('workCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Work_deletetWork');
+    }).then(val => {
+        res.redirect('/getWork')
+    })
+});
+
+
 module.exports = router;

@@ -109,6 +109,18 @@ router.post('/addEvent', (req, res) => {
     }).then(val => {
         res.redirect('/getEvent')
     });
-})
+});
+
+router.get('/deleteEvent/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('eventCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Event_deleteEvent');
+    }).then(val => {
+        res.redirect('/getEvent')
+    })
+});
+
 
 module.exports = router;

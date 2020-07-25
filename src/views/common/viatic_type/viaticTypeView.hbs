@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="m-1">
-        <a class="btn btn-outline-success btn-block" href = "/addViatic" >Agregar un tipo viatico</a>
+        <a class="btn btn-outline-success btn-block" href = "/addViaticType" >Agregar un tipo viatico</a>
     </div>
     
     <div class="row">
@@ -11,11 +11,7 @@
                     <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">ID: {{viaticTypeCode}}</p>
                     <p class="text-muted">Descripcion: {{DescriptionViaticType}}</p>
 
-                    <a class="btn btn-success" href="editBranchOffice/{{branchCode}}">
-                        Editar
-                    </a>
-
-                    <a class="btn btn-danger" href="deleteBranchOffice/{{branchCode}}">
+                    <a class="btn btn-danger" href="/deleteViaticType/{{viaticTypeCode}}">
                         Eliminar
                     </a>
 

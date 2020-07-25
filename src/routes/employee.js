@@ -34,4 +34,16 @@ router.post('/addEmployee', (req, res) => {
 
 });
 
+router.get('/deleteEmployee/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('employeeCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Employee_deleteEmployee');
+    }).then(val => {
+        res.redirect('/getEmployee')
+    })
+});
+
+
 module.exports = router;

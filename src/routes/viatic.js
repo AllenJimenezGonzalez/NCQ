@@ -80,4 +80,16 @@ router.post('/addViatic', (req, res) => {
     });
 });
 
+router.get('/deleteViatic/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('viaticCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Viatic_deleteViatic');
+    }).then(val => {
+        res.redirect('/getViatic')
+    });
+});
+
+
 module.exports = router;

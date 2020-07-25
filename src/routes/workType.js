@@ -33,4 +33,17 @@ router.post('/addWorkType', (req, res) => {
     });
 });
 
+
+router.get('/deleteWorkType/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('workTypeCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('WorkType_deleteWorkType');
+    }).then(val => {
+        res.redirect('/getWorkType')
+    })
+});
+
+
 module.exports = router;

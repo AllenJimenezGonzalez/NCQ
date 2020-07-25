@@ -32,6 +32,17 @@ router.post('/addSupport', (req, res) => {
     });
 });
 
+router.get('/deleteSupport/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('supportCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('Support_deleteSupport');
+    }).then(val => {
+        res.redirect('/getSupport')
+    })
+});
+
 
 
 module.exports = router;

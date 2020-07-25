@@ -81,7 +81,7 @@ router.post('/addTransportViatic', (req, res) => {
             .input('ticket', sql.VarChar(25), ticket)
             .input('amount', sql.Int, req.body.amount)
             .input('invoiceNumber', sql.VarChar(25), req.body.invoiceNumber)
-            .input('viaticTypeCode', sql.Int, req.body.viaticTypeCode)
+            .input('viaticTypeCode', sql.Int, 5)
             .input('employeeCode', sql.Int, req.body.employeeCode)
             .input('eventCode', sql.Int, req.body.eventCode)
             .output('status', sql.Bit, 0)
@@ -91,14 +91,25 @@ router.post('/addTransportViatic', (req, res) => {
     getPoolConnection().then(pool => {
         return pool.request()
             .input('carId', sql.Char(6), req.body.carId)
-            .input('kilometers', sql.Int, req.body.viaticTypeCode)
-            .input('kilometersAmount', sql.Int, req.body.employeeCode)
+            .input('kilometers', sql.Int, req.body.kilometers)
+            .input('kilometersAmount', sql.Int, req.body.kilometersAmount)
             .output('status', sql.Bit, 0)
             .execute('TransportViatic_addTransportViatic');
     });
 
     res.redirect('/getTransportViatic');
 
+});
+
+router.get('/deleteTransportViatic/:id', (req, res) => {
+    getPoolConnection().then(pool => {
+        return pool.request()
+            .input('viaticCode', sql.Int, req.params.id)
+            .output('status', sql.Bit, 0)
+            .execute('TransportViatic_deleteTransportViatic');
+    }).then(val => {
+        res.redirect('/getTransportViatic')
+    })
 });
 
 
