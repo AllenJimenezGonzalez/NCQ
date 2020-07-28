@@ -32,7 +32,6 @@ router.post('/addEmployee', (req, res) => {
         res.redirect('/getEmployee');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });
@@ -49,7 +48,6 @@ router.get('/deleteEmployee/:id', (req, res) => {
         res.redirect('/getEmployee')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });

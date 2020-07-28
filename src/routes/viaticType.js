@@ -32,7 +32,6 @@ router.post('/addViaticType', (req, res) => {
         res.redirect('/getViaticType');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getViaticType')
         }
     });
@@ -49,7 +48,6 @@ router.get('/deleteViaticType/:id', (req, res) => {
         res.redirect('/getViaticType')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getViaticType')
         }
     });

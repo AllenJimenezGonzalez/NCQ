@@ -79,7 +79,6 @@ router.post('/addViatic', (req, res) => {
         res.redirect('/getViatic')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getViatic')
         }
     });
@@ -95,7 +94,6 @@ router.get('/deleteViatic/:id', (req, res) => {
         res.redirect('/getViatic')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getViatic')
         }
     });

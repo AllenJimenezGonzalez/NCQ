@@ -110,7 +110,6 @@ router.post('/addEvent', (req, res) => {
         res.redirect('/getEvent')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });
@@ -126,7 +125,6 @@ router.get('/deleteEvent/:id', (req, res) => {
         res.redirect('/getEvent')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });

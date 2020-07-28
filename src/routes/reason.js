@@ -33,7 +33,6 @@ router.post('/addReason', (req, res) => {
         res.redirect('/getReason');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });
@@ -50,7 +49,6 @@ router.get('/deleteReason/:id', (req, res) => {
         res.redirect('/getReason');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });

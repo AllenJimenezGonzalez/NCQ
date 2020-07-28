@@ -34,7 +34,6 @@ router.post('/addCostCenter', (req, res) => {
         res.redirect('/getCostCenter');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getCostCenter')
         }
     });
@@ -52,7 +51,6 @@ router.get('/deleteCostCenter/:id', (req, res) => {
         res.redirect('/getCostCenter');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getCostCenter')
         }
     });

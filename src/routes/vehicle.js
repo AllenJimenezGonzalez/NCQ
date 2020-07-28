@@ -35,7 +35,6 @@ router.post('/addVehicle', (req, res) => {
         res.redirect('/getVehicle');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getVehicle')
         }
     });
@@ -51,7 +50,6 @@ router.get('/deleteVehicle/:id', (req, res) => {
         res.redirect('/getVehicle')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getVehicle')
         }
     });

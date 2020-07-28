@@ -31,7 +31,6 @@ router.post('/addSupport', (req, res) => {
         res.redirect('/getSupport')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });
@@ -47,7 +46,6 @@ router.get('/deleteSupport/:id', (req, res) => {
         res.redirect('/getSupport')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getEmployee')
         }
     });

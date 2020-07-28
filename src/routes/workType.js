@@ -32,7 +32,6 @@ router.post('/addWorkType', (req, res) => {
         res.redirect('/getWorkType');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getWorkType')
         }
     });
@@ -49,7 +48,6 @@ router.get('/deleteWorkType/:id', (req, res) => {
         res.redirect('/getWorkType')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getWorkType')
         }
     });

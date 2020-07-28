@@ -40,7 +40,6 @@ router.post('/addWork', (req, res) => {
         res.redirect('/getWork');
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getWork')
         }
     });
@@ -57,7 +56,6 @@ router.get('/deleteWork/:id', (req, res) => {
         res.redirect('/getWork')
     }).catch(err => {
         if (err) {
-            $('partials/alert').alert()
             res.redirect('/getWork')
         }
     });
