@@ -31,6 +31,11 @@ router.post('/addReason', (req, res) => {
 
     }).then(val => {
         res.redirect('/getReason');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
     });
 
 });
@@ -43,6 +48,11 @@ router.get('/deleteReason/:id', (req, res) => {
             .execute('Reason_deleteReason');
     }).then(val => {
         res.redirect('/getReason');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
     });
 });
 

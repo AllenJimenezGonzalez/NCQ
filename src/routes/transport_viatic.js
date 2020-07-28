@@ -86,6 +86,11 @@ router.post('/addTransportViatic', (req, res) => {
             .input('eventCode', sql.Int, req.body.eventCode)
             .output('status', sql.Bit, 0)
             .execute('Viatic_addViatic');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getTransportViatic')
+        }
     });
 
     getPoolConnection().then(pool => {
@@ -95,6 +100,11 @@ router.post('/addTransportViatic', (req, res) => {
             .input('kilometersAmount', sql.Int, req.body.kilometersAmount)
             .output('status', sql.Bit, 0)
             .execute('TransportViatic_addTransportViatic');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getTransportViatic')
+        }
     });
 
     res.redirect('/getTransportViatic');
@@ -109,7 +119,12 @@ router.get('/deleteTransportViatic/:id', (req, res) => {
             .execute('TransportViatic_deleteTransportViatic');
     }).then(val => {
         res.redirect('/getTransportViatic')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getTransportViatic')
+        }
+    });
 });
 
 

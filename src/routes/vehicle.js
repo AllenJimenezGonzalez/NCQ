@@ -33,7 +33,12 @@ router.post('/addVehicle', (req, res) => {
             .execute('Vehicle_addVehicle');
     }).then(val => {
         res.redirect('/getVehicle');
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getVehicle')
+        }
+    });
 });
 
 router.get('/deleteVehicle/:id', (req, res) => {
@@ -44,7 +49,12 @@ router.get('/deleteVehicle/:id', (req, res) => {
             .execute('Vehicle_deleteVehicle');
     }).then(val => {
         res.redirect('/getVehicle')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getVehicle')
+        }
+    });
 });
 
 module.exports = router;

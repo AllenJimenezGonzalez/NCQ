@@ -39,7 +39,11 @@ router.get('/deleteClientPhone/:id/:clientCode', (req, res) => {
             .execute('ClientPhone_deletePhone');
     }).then(val => {
         res.redirect('/getClients');
-    })
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getClients')
+        }
+    });
 });
 
 router.get('/getClientsPhone/:id', (req, res) => {
@@ -87,7 +91,11 @@ router.get('/deleteClientEmail/:id/:clientCode', (req, res) => {
             .execute('ClientEmail_deleteEmail');
     }).then(val => {
         res.redirect('/getClients');
-    })
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getClients')
+        }
+    });
 });
 
 router.get('/deleteClient/:id', (req, res) => {
@@ -99,6 +107,10 @@ router.get('/deleteClient/:id', (req, res) => {
         })
         .then(val => {
             res.redirect('/getClients');
+        }).catch(err => {
+            if (err) {
+                res.redirect('/getClients')
+            }
         });
 });
 
@@ -115,7 +127,11 @@ router.post('/addClient', (req, res) => {
             .execute('Client_addClient');
     }).then(val => {
         res.redirect('/getClients');
-    })
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getClients')
+        }
+    });
 });
 
 router.get('/addClientPhone', (req, res) => {
@@ -138,7 +154,11 @@ router.post('/addClientPhone', (req, res) => {
             .execute('ClientPhone_addPhone')
     }).then(val => {
         res.redirect('/getClientsPhone');
-    })
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getClients')
+        }
+    });
 });
 
 router.get('/addClientEmail', (req, res) => {
@@ -162,7 +182,11 @@ router.post('/addClientEmail', (req, res) => {
             .execute('ClientEmail_addEmail')
     }).then(val => {
         res.redirect('/getClientsEmail');
-    })
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getClients')
+        }
+    });
 })
 
 module.exports = router;

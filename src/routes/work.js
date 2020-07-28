@@ -38,6 +38,11 @@ router.post('/addWork', (req, res) => {
             .execute('Work_addWork')
     }).then(val => {
         res.redirect('/getWork');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getWork')
+        }
     });
 });
 
@@ -50,7 +55,12 @@ router.get('/deleteWork/:id', (req, res) => {
             .execute('Work_deletetWork');
     }).then(val => {
         res.redirect('/getWork')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getWork')
+        }
+    });
 });
 
 

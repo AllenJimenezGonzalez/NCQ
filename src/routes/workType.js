@@ -30,6 +30,11 @@ router.post('/addWorkType', (req, res) => {
             .execute('WorkType_addWorkType')
     }).then(val => {
         res.redirect('/getWorkType');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getWorkType')
+        }
     });
 });
 
@@ -42,7 +47,12 @@ router.get('/deleteWorkType/:id', (req, res) => {
             .execute('WorkType_deleteWorkType');
     }).then(val => {
         res.redirect('/getWorkType')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getWorkType')
+        }
+    });
 });
 
 

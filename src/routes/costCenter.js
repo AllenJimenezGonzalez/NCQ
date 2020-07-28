@@ -32,6 +32,11 @@ router.post('/addCostCenter', (req, res) => {
 
     }).then(val => {
         res.redirect('/getCostCenter');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getCostCenter')
+        }
     });
 
 });
@@ -45,6 +50,11 @@ router.get('/deleteCostCenter/:id', (req, res) => {
 
     }).then(val => {
         res.redirect('/getCostCenter');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getCostCenter')
+        }
     });
 });
 

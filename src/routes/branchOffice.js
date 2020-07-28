@@ -35,10 +35,9 @@ router.post('/addBranchOffice', (req, res) => {
             } else {
                 res.status(HttpStatus.BAD_REQUEST).json({ data: 'Elemento ya agregado.' }).redirect('/');
             }
-        })
-        .catch(err => {
+        }).catch(err => {
             if (err) {
-                res.json({ data: err.message });
+                res.redirect('/getBranchOffice')
             }
         });
 });
@@ -63,6 +62,10 @@ router.get('/deleteBranchOffice/:id', (req, res) => {
         })
         .then(val => {
             res.redirect('/getBranchOffice');
+        }).catch(err => {
+            if (err) {
+                res.redirect('/getBranchOffice')
+            }
         });
 });
 
@@ -95,6 +98,10 @@ router.get('/editBranchOffice/:branchCode', (req, res) => {
                 res.render('common/branch_office/editBranchOffice', { data: element });
             }
         });
+    }).catch(err => {
+        if (err) {
+            res.redirect('/getBranchOffice')
+        }
     });
 });
 

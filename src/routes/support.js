@@ -29,6 +29,11 @@ router.post('/addSupport', (req, res) => {
             .execute('Support_addSupport');
     }).then(val => {
         res.redirect('/getSupport')
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
     });
 });
 
@@ -40,7 +45,12 @@ router.get('/deleteSupport/:id', (req, res) => {
             .execute('Support_deleteSupport');
     }).then(val => {
         res.redirect('/getSupport')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
+    });
 });
 
 

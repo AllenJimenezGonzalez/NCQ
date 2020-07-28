@@ -108,6 +108,11 @@ router.post('/addEvent', (req, res) => {
             .execute('Event_addEvent');
     }).then(val => {
         res.redirect('/getEvent')
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
     });
 });
 
@@ -119,7 +124,12 @@ router.get('/deleteEvent/:id', (req, res) => {
             .execute('Event_deleteEvent');
     }).then(val => {
         res.redirect('/getEvent')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
+    });
 });
 
 

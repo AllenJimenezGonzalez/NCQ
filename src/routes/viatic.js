@@ -77,6 +77,11 @@ router.post('/addViatic', (req, res) => {
             .execute('Viatic_addViatic');
     }).then(val => {
         res.redirect('/getViatic')
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getViatic')
+        }
     });
 });
 
@@ -88,6 +93,11 @@ router.get('/deleteViatic/:id', (req, res) => {
             .execute('Viatic_deleteViatic');
     }).then(val => {
         res.redirect('/getViatic')
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getViatic')
+        }
     });
 });
 

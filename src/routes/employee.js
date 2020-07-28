@@ -30,6 +30,11 @@ router.post('/addEmployee', (req, res) => {
             .execute('Employee_addEmployee');
     }).then(val => {
         res.redirect('/getEmployee');
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
     });
 
 });
@@ -42,7 +47,12 @@ router.get('/deleteEmployee/:id', (req, res) => {
             .execute('Employee_deleteEmployee');
     }).then(val => {
         res.redirect('/getEmployee')
-    })
+    }).catch(err => {
+        if (err) {
+            $('partials/alert').alert()
+            res.redirect('/getEmployee')
+        }
+    });
 });
 
 

@@ -1,14 +1,15 @@
 <div class="container p-4">
     <div class="m-1">
-        <a class="btn btn-outline-success btn-block" href = "/addBranchOffice" >Agregar sucursal</a>
+        <a class="btn btn-outline-success btn-block" href="/addBranchOffice">Agregar sucursal</a>
     </div>
-    
+
     <div class="row">
         {{#each branchOffices}}
         <div class="col-md-3">
             <div class="shadow card text-center">
                 <div class="card-body">
-                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">Nombre sucursal: {{name}}</p>
+                    <p class="p-3 mb-2 bg-success text-white text-uppercase font-weight-light">Nombre sucursal: {{name}}
+                    </p>
                     <p class="text-muted">Codigo de la sucursal: {{branchCode}}</p>
                     <p class="m-2">Direccion: {{direction}}</p>
                     <p class="text-muted">Codigo del cliente: {{clientCode}}</p>
@@ -22,7 +23,6 @@
                 </div>
             </div>
         </div>
-        
         {{/each}}
     </div>
 </div>
